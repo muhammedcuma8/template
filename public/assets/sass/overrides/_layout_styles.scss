@@ -1,0 +1,45 @@
+/* Add your customizations of layout here */
+$color_1: var(--text-color);
+$color_2: var(--text-color);
+$border-color_1: var(--primary-color);
+
+/* Add your customizations of layout here */
+.languageSelect {
+	span.flag {
+		height: 15px;
+		width: 22px;
+	}
+	color: $color_1;
+	border-color: $border-color_1;
+	.p-inputtext {
+		color: $color_1;
+	}
+	.p-clickable {
+		color: $color_2;
+	}
+}
+.languageSelect.p-dropdown {
+	&:not(.p-disabled) {
+		&:hover {
+			border-color: $border-color_1 !important;
+		}
+	}
+}
+.dropzone {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-width: 2px;
+    border-radius: 2px;
+    border-color: #eeeeee;
+    border-style: dashed;
+    color: $color_1;
+    outline: none;
+    transition: border .24s ease-in-out;
+	border:1px dashed  $border-color_1;
+}
+.formPage{
+	.field {input,select,.p-dropdown,.p-multiselect{width: 100%;}}
+}

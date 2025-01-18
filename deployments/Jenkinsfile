@@ -1,0 +1,112 @@
+pipeline {
+	agent any
+	environment {
+		JENKINS_TOKEN_PWD = credentials('JENKINS_TOKEN')
+        PROCEED_TO_DEPLOY = true
+		PATH="/var/lib/jenkins/.dotnet/tools:$PATH"
+    }
+	tools {nodejs "node"}	
+	stages {
+		stage('Checkout') {
+			when{
+				expression
+				{
+					return env.PROCEED_TO_DEPLOY
+				}
+			}
+			steps {
+				checkout scm
+			}
+		}
+        stage("Install") {
+            steps {
+				sh "npm config set proxy http://proxy.koton.com.tr:8080"
+				sh "npm config set registry http://registry.npmjs.org/"
+            }
+        }	
+		stage('Docker Build') {
+			when{
+				expression
+				{
+					return env.PROCEED_TO_DEPLOY
+				}
+			}
+			steps {
+				script {
+					switch("${JOB_NAME}".split('/')[0]) {
+                        case "Development": 
+						PROJECT_ENVIRONMENT="dev"; 
+						HUB_ENVIRONMENT="dev"; 
+						REACT_ENVIRONMENT="development";
+						break
+                        case "Test": 
+						PROJECT_ENVIRONMENT="test"; 
+						HUB_ENVIRONMENT="test"; 
+						REACT_ENVIRONMENT="test";
+						break
+                        case "Production": 
+						PROJECT_ENVIRONMENT="prod"; 
+						HUB_ENVIRONMENT="preprod"; 
+						REACT_ENVIRONMENT="production";
+						break
+                        default: 
+						PROJECT_ENVIRONMENT="dev"; 
+						HUB_ENVIRONMENT="dev"; 
+						REACT_ENVIRONMENT="development";
+						break
+                    }
+	            }
+				
+				sh "docker-compose -p \"{DOCKER_WORKDIR}\" -f ./source/docker-compose.yml down"
+				sh "docker-compose -p \"{DOCKER_WORKDIR}\" -f ./source/docker-compose.yml --env-file .env.${REACT_ENVIRONMENT} up -d {ContainerName}-${PROJECT_ENVIRONMENT}"
+				echo "${HUB_PASSWORD} | docker login -u ${HUB_USERNAME} --password-stdin ${HUB_URL}"
+				sh "docker tag {ContainerName}:latest ${HUB_URL}/${HUB_ENVIRONMENT}/{ContainerName}:${BUILD_NUMBER}"
+				sh "docker push ${HUB_URL}/${HUB_ENVIRONMENT}/{ContainerName}:${BUILD_NUMBER}"
+				sh "docker rmi -f {ContainerName}:latest"
+				sh "docker rmi -f ${HUB_URL}/${HUB_ENVIRONMENT}/{ContainerName}:${BUILD_NUMBER}"
+				sh "docker-compose -p \"{DOCKER_WORKDIR}\" -f ./source/docker-compose.yml down --rmi all -v --remove-orphans"
+			}
+		}
+	}
+    post {
+        success {
+            cleanWs() // Workspace'i temizle			
+            script {
+                sh '''
+                # TEAMS_NOTIFY_URL değişkenini belirlemek için switch ifadesi
+                case "$(echo "$JOB_NAME" | cut -d'/' -f1)" in
+                    "Development") TEAMS_NOTIFY_URL="$DEV_CHANNEL_TEAMSWEBHOOK" ;;
+                    "Test") TEAMS_NOTIFY_URL="$TEST_CHANNEL_TEAMSWEBHOOK" ;;
+                    "Production") TEAMS_NOTIFY_URL="$PROD_CHANNEL_TEAMSWEBHOOK" ;;
+                    *) TEAMS_NOTIFY_URL="TEAMSWEBHOOK_URL_YOK" ;;
+                esac
+                # JOB'ı başlatan kullanıcı bilgisi alınır.
+                BUILD_INFO=$(curl -s --user "${JENKINS_USERNAME}:${JENKINS_TOKEN_PWD}" "${BUILD_URL}api/json")
+                JOB_START_USER_NAME=$(echo "$BUILD_INFO" | grep -oP '"userName":"\\K[^"]+')
+
+                # TEAMS'e bildirim göndermek için kullanıldı.
+                curl --location $TEAMS_NOTIFY_URL --header 'Content-Type: application/json' --data "{\\"text\\":\\"${JOB_START_USER_NAME}, ${JOB_NAME} projesine Deploy Request başlattı. İşlemler başarıyla tamamlandı. BuildNumber: ${BUILD_NUMBER}\\"}"
+                '''
+            }
+        }
+        failure {
+            script {
+                sh '''
+                # TEAMS_NOTIFY_URL değişkenini belirlemek için switch ifadesi
+                case "$(echo "$JOB_NAME" | cut -d'/' -f1)" in
+                    "Development") TEAMS_NOTIFY_URL="$DEV_CHANNEL_TEAMSWEBHOOK" ;;
+                    "Test") TEAMS_NOTIFY_URL="$TEST_CHANNEL_TEAMSWEBHOOK" ;;
+                    "Production") TEAMS_NOTIFY_URL="$PROD_CHANNEL_TEAMSWEBHOOK" ;;
+                    *) TEAMS_NOTIFY_URL="TEAMSWEBHOOK_URL_YOK" ;;
+                esac
+                # JOB'ı başlatan kullanıcı bilgisi alınır.
+                BUILD_INFO=$(curl -s --user "${JENKINS_USERNAME}:${JENKINS_TOKEN_PWD}" "${BUILD_URL}api/json")
+                JOB_START_USER_NAME=$(echo "$BUILD_INFO" | grep -oP '"userName":"\\K[^"]+')
+
+                # TEAMS'e bildirim göndermek için kullanıldı.
+                curl --location $TEAMS_NOTIFY_URL --header 'Content-Type: application/json' --data "{\\"text\\":\\"${JOB_START_USER_NAME}, ${JOB_NAME} projesine Deploy Request başlattı. İşlemler başarız oldu. BuildNumber: ${BUILD_NUMBER}\\"}"
+                '''                
+            }
+        }
+    }		
+}

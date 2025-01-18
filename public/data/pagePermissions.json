@@ -1,0 +1,55 @@
+[
+  {
+    "page_id": 1,  
+    "role_id": 1,  
+    "can_view": true,
+    "can_edit": true
+  },
+  {
+    "page_id": 1,
+    "role_id": 2,  
+    "can_view": true
+  },
+  {
+    "page_id": 1,
+    "role_id": 3, 
+    "can_view": true,
+    "can_edit": false
+  },
+  {
+    "page_id": 2, 
+    "role_id": 1,
+    "can_view": true,
+    "can_edit": true
+  },
+  {
+    "page_id": 2,
+    "role_id": 2,
+    "can_view": true,
+    "can_edit": false
+  },
+  {
+    "page_id": 2,
+    "role_id": 3,
+    "can_view": true,
+    "can_edit": true
+  },
+  {
+    "page_id": 3, 
+    "role_id": 1,
+    "can_view": true,
+    "can_edit": true
+  },
+  {
+    "page_id": 3,
+    "role_id": 2,
+    "can_view": true,
+    "can_edit": true
+  },
+  {
+    "page_id": 3,
+    "role_id": 3,
+    "can_view": true,
+    "can_edit": false
+  }
+]

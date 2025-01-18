@@ -1,0 +1,47 @@
+﻿{
+  "$schema": "https://json.schemastore.org/template",
+  "icon": "icon.png",
+  "author": "KotonYazilim",
+  "classifications": [ "WEB" ],
+  "identity": "Koton.Infrastructure.Templates.WebAppProject",
+  "name": "Koton Infrastructure Templates WebAppProject",
+  "description": "React WebApp uygulamasıdır, webapp proje şablon işlemleri için kullanabilirsiniz.",
+  "shortName": "kotonwebapp",
+  "sourceName": "Koton.Infrastructure.Templates.WebAppProject",
+  "tags": {
+    "type": "project",
+    "language": "TypeScript"
+  },
+  "defaultName": "WebAppProject",
+  "preferNameDirectory": true,
+  "symbols": {
+    "ContainerName": {
+      "type": "parameter",
+      "description": "Web App uygulamasına ait Container Name bilgisini giriniz.",
+      "datatype": "text",
+      "defaultValue": "kp-infrastructure-templates-webappproject",
+      "isRequired": true,
+      "displayName": "Web App uygulamasına ait Container Name bilgisi",
+      "replaces": "{ContainerName}"
+    },
+    "DockerWorkDir": {
+      "type": "parameter",
+      "description": "Web App uygulamasına ait loglama için DOCKER_WORKDIR bilgisini giriniz.",
+      "datatype": "text",
+      "defaultValue": "KotonInfrastructureTemplatesWebAppProjectApp",
+      "isRequired": true,
+      "displayName": "Web App uygulamasına ait loglama için DOCKER_WORKDIR bilgisi",
+      "replaces": "{DOCKER_WORKDIR}"
+    },
+    "ApplicationName": {
+      "type": "parameter",
+      "description": "Web App uygulamasına ait APPLICATION_NAME bilgisini giriniz.",
+      "datatype": "text",
+      "defaultValue": "Koton.Infrastructure.Templates.WebAppProject",
+      "isRequired": true,
+      "displayName": "Web App uygulamasına ait APPLICATION_NAME bilgisi",
+      "replaces": "{APPLICATION_NAME}"
+    }
+
+  }
+}

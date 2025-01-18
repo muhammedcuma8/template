@@ -1,0 +1,18 @@
+[
+   {
+     "permission_id": 1,
+     "permission_name": "Create Post",
+     "description": "Allows the user to create new posts"
+   },
+   {
+     "permission_id": 2,
+     "permission_name": "Edit Post",
+     "description": "Allows the user to edit existing posts"
+   },
+   {
+     "permission_id": 3,
+     "permission_name": "Delete Post",
+     "description": "Allows the user to delete existing posts"
+   }
+ ]
+ 

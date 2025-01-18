@@ -1,0 +1,100 @@
+{
+    "Login": {
+        "Username": "Username",
+        "Welcome": "Welcome",
+        "Title": "Please use the form to sign-in Koton network",
+        "Email": "Email",
+        "Password": "Password",
+        "Errors": {
+            "EnterEmail": "Please enter your email",
+            "WrongEmail": "You entered an invalid e-mail address.",
+            "Password": "Please enter your password."
+        },
+        "success": "Login successful. You are being redirected",
+        "summary": "Successful"
+    },
+    "Languages": {
+        "English": "English",
+        "Turkish": "Turkish",
+        "Arabic": "Arabic"
+    },
+    "Pages": {
+        "title": "Pages",
+        "Articles": "Articles",
+        "Users": "Users",
+        "Roles": "Roles",
+        "userRoles": "userRoles",
+        "Pages": "Pages",
+        "Permissions": "Permissions",
+        "Access Control": "Access Control",
+        "ProductsCRUD": "Products CRUD",
+        "Empty": "Empty",
+        "Products": "Products",
+        "EmptyPage": {
+            "title": "Empty Page",
+            "des": "This is your empty page template to start building beautiful applications."
+        }
+    },
+    "PageNotFound": "Page not found.",
+    "InvalidParameter": "Invalid or missing parameter sent.",
+    "ServerAccessFailed": "Server access failed",
+    "DASHBOARD": "DASHBOARD",
+    "ACCESSDENIED": "ACCESS DENIED",
+    "Requestedresourceisnotavailable": "Requested resource is not available.",
+    "GOBACKTODASHBOARD": "GO BACK TO DASHBOARD",
+    "Error": "Error",
+    "cookieBanner": {
+        "text": "We use cookies to improve your experience.",
+        "readPrivacyPolicy": "Read our privacy policy",
+        "manageSettings": "Manage Cookie Settings"
+    },
+    "privacyPolicy": {
+        "title": "Privacy Policy",
+        "updatedTag": "Updated Policy",
+        "description": "Welcome to our Privacy Policy. Your privacy is important to us. This document explains how we collect, store, and use your personal data.",
+        "yourRightsTitle": "Your Rights",
+        "rights": {
+            "accessData": "Access your personal data",
+            "correctData": "Request corrections to inaccurate information",
+            "deleteData": "Request deletion of your data"
+        }
+    },
+    "manageCookiePreferences": "Manage Cookie Preferences",
+    "accept": "Accept",
+    "decline": "Decline",
+    "close": "Close",
+    "cancel": "Cancel",
+    "savePreferences": "Save Preferences",
+    "showDetails": "Show Details",
+    "hideDetails": "Hide Details",
+    "Version":"Version",
+    "cookies": {
+        "necessary": {
+            "title": "Necessary",
+            "description": "These cookies are essential for the website to function properly and cannot be disabled.",
+            "XSRF-TOKEN": "Used for security purposes to prevent cross-site request forgery.",
+            "session_id": "Maintains the user's session state across page requests.",
+            "remember_me": "Stores login preferences to keep the user signed in."
+          },
+          "analytics": {
+            "title": "Analytics",
+            "description": "These cookies help us analyze website usage and traffic patterns.",
+            "_ga": "Used to distinguish users.",
+            "_gat": "Used to throttle request rate.",
+            "_gid": "Stores session information for statistical analysis."
+          },
+          "marketing": {
+            "title":"Marketing",
+            "description": "These cookies are used for personalized ads and to measure ad performance.",
+            "fbp": "Facebook pixel tracking cookie for ad campaigns.",
+            "enter_ts": "Tracks session entry time.",
+            "gclid": "Google Ads click identifier."
+          },
+          "functional": {
+            "title": "Functional",
+            "description": "These cookies enable advanced functionality and personal settings.",
+            "dark_mode": "Stores the user's dark mode preference.",
+            "language": "Stores the preferred language of the user."
+          }
+    }
+}

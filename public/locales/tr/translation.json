@@ -1,0 +1,93 @@
+{
+  "Login": {
+    "Username": "Kullanıcı Adı",
+    "Welcome": "Hoş geldiniz",
+    "Title": "Lütfen Koton ağına giriş yapmak için formu kullanın",
+    "Email": "E-posta",
+    "Password": "Şifre",
+    "Errors": {
+      "EnterEmail": "Lütfen e-posta adresinizi girin",
+      "WrongEmail": "Geçersiz bir e-posta adresi girdiniz.",
+      "Password": "Lütfen şifrenizi girin."
+    },
+    "success": "Giriş başarılı. Yönlendiriliyorsunuz",
+    "summary": "Başarılı"
+  },
+  "Languages": {
+    "English": "İngilizce",
+    "Turkish": "Türkçe",
+    "Arabic": "Arapça"
+  },
+  "Pages": {
+    "title": "Sayfalar",
+    "Articles": "Makaleler",
+    "Empty": "Boş",
+    "Products": "Ürünler",
+    "EmptyPage": {
+      "title": "Boş Sayfa",
+      "des": "Güzel uygulamalar oluşturmaya başlamak için boş sayfa şablonunuz."
+    }
+  },
+  "PageNotFound": "Böyle bir sayfa bulunamadı.",
+  "InvalidParameter": "Hatalı ya da eksik parametre gönderildi.",
+  "ServerAccessFailed": "Sunucu erişimi yapılamadı",
+  "DASHBOARD": "ANASAYFA",
+  "ACCESSDENIED": "ERİŞİM REDDEDİLDİ",
+  "Requestedresourceisnotavailable ": "İstenen kaynak mevcut değil.",
+  "GOBACKTODASHBOARD": "ANASAYFA DÖN",
+  "Error": "Hata",
+  "cookieBanner": {
+    "text": "We use cookies to improve your experience.",
+    "readPrivacyPolicy": "Read our privacy policy",
+    "manageSettings": "Manage Cookie Settings"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "updatedTag": "Updated Policy",
+    "description": "Welcome to our Privacy Policy. Your privacy is important to us. This document explains how we collect, store, and use your personal data.",
+    "yourRightsTitle": "Your Rights",
+    "rights": {
+      "accessData": "Access your personal data",
+      "correctData": "Request corrections to inaccurate information",
+      "deleteData": "Request deletion of your data"
+    }
+  },
+  "manageCookiePreferences": "Manage Cookie Preferences",
+  "accept": "Accept",
+  "decline": "Decline",
+  "close": "Close",
+  "cancel": "Cancel",
+  "savePreferences": "Save Preferences",
+  "showDetails": "Show Details",
+  "hideDetails": "Hide Details",
+  "Version":"Versiyon",
+  "cookies": {
+    "necessary": {
+      "title": "Necessary",
+      "description": "These cookies are essential for the website to function properly and cannot be disabled.",
+      "XSRF-TOKEN": "Used for security purposes to prevent cross-site request forgery.",
+      "session_id": "Maintains the user's session state across page requests.",
+      "remember_me": "Stores login preferences to keep the user signed in."
+    },
+    "analytics": {
+      "title": "Analytics",
+      "description": "These cookies help us analyze website usage and traffic patterns.",
+      "_ga": "Used to distinguish users.",
+      "_gat": "Used to throttle request rate.",
+      "_gid": "Stores session information for statistical analysis."
+    },
+    "marketing": {
+      "title":"Marketing",
+      "description": "These cookies are used for personalized ads and to measure ad performance.",
+      "fbp": "Facebook pixel tracking cookie for ad campaigns.",
+      "enter_ts": "Tracks session entry time.",
+      "gclid": "Google Ads click identifier."
+    },
+    "functional": {
+      "title": "Functional",
+      "description": "These cookies enable advanced functionality and personal settings.",
+      "dark_mode": "Stores the user's dark mode preference.",
+      "language": "Stores the preferred language of the user."
+    }
+  }
+}

@@ -1,0 +1,21 @@
+[
+    {
+      "user_id": 1,
+      "username": "Muhammed_Cuma",
+      "name": "Muhammed Cuma",
+      "email": "MuhammedCuma@example.com",
+      "role": "admin",
+      "created_at": "2021-01-01T00:00:00Z",
+        "updated_at": "2021-01-01T00:00:00Z"
+    },
+    {
+      "user_id": 2,
+      "username": "Murat",
+      "name": "Murat",
+      "email": "Murat@example.com",
+        "role": "user",
+        "created_at": "2021-01-01T00:00:00Z",
+        "updated_at": "2021-01-01T00:00:00Z"
+
+    }
+  ]
